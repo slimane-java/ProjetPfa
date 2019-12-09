@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
@@ -17,6 +18,10 @@ public class Etudiant extends User implements Serializable{
 	
 	@ManyToMany(mappedBy="Etudients")
 	private Set<Filiere> Filieres=new HashSet<Filiere>();
+	
+	@OneToMany(mappedBy = "etudiant")
+	private Set<TpEtudient> tpEtudient =new HashSet<TpEtudient>();
+	
 	public Etudiant() {
 		super();
 		// TODO Auto-generated constructor stub

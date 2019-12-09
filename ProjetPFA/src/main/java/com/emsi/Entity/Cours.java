@@ -1,10 +1,12 @@
 package com.emsi.Entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -18,8 +20,18 @@ public class Cours implements Serializable{
 	private String NomCour;
 	private int NbHeure;
 	private String Description;
+	
 	@OneToMany(mappedBy = "cours")
 	private Set<Chapiter> chapiter;
+	
+	@ManyToMany()
+	private Set<Professeur>professeurs=new HashSet<Professeur>();
+	
+	@OneToMany(mappedBy = "Cours")
+	private Set<QSM>qsm=new HashSet<QSM>();
+	
+	@OneToMany(mappedBy = "Cours")
+	private Set<Tp> tp=new HashSet<Tp>();
 	
 	public Cours(String nomCour, int nbHeure, String description) {
 		super();

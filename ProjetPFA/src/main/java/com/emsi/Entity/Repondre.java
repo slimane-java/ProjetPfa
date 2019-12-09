@@ -1,9 +1,19 @@
 package com.emsi.Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Repondre {
+	@Id
 	private int IdRepondre;
 	private String Repondre;
 	private float Point;
+	
+	@ManyToOne
+	private Question question;
+	
 	public Repondre() {
 		super();
 		// TODO Auto-generated constructor stub

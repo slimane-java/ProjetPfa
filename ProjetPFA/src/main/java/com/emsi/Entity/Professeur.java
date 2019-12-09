@@ -1,15 +1,19 @@
 package com.emsi.Entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Professeur extends User{
 	
 	private String Specialite;
 
-	
+	@ManyToMany(mappedBy = "professeurs")
+	private Set<Cours>coures=new HashSet<Cours>();
 	
 	public Professeur() {
 		super();

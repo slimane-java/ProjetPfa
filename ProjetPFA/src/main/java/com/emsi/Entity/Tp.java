@@ -1,14 +1,32 @@
 package com.emsi.Entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Tp {
 	
+	@Id
 	private int    IdTp;
 	private String Nom;
 	private Date   DateCreation;
 	private Date   DateRendu;
 	private String Url;
+	
+	@ManyToOne
+	private Cours Cours;
+	
+	@OneToMany(mappedBy = "tp")
+	private Set<TpEtudient> tpEtudient =new HashSet<TpEtudient>();
+	
+	
+	
 	public Tp(int idTp, String nom, Date dateCreation, Date dateRendu, String url) {
 		super();
 		IdTp = idTp;
