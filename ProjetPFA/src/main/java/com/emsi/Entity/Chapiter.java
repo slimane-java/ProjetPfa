@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Chapiter implements Serializable{
 	@Id
-	@Column(length = 100)
+	
 	private int IdChapiter;
 	private String Nom;
 	private String Description;

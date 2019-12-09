@@ -16,7 +16,7 @@ public class Etudiant extends User implements Serializable{
 	private String NiveauScolaire;
 	
 	@ManyToMany(mappedBy="Etudients")
-	private Filiere Filieres;
+	private Set<Filiere> Filieres=new HashSet<Filiere>();
 	public Etudiant() {
 		super();
 		// TODO Auto-generated constructor stub
